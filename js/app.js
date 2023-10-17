@@ -62,3 +62,25 @@ const lima = {
     return Math.floor(Math.random() * (max-min) + min);
   },
 };
+
+function calculateSales (city) {
+  let salesProjection = [];
+
+  for (let i = 6; i <=20; i++) {
+    let cookiesSold = Math.trunc(city.generateCustomers() * city.cookieAvg);
+
+    if (i < 12) {
+      salesProjection.push(i + "am: " + cookiesSold + " cookies");
+    } else if (i === 12) {
+      salesProjection.push(i + "pm: " + cookiesSold + " cookies");
+    } else {
+      salesProjection.push((i-12) + "pm: " + cookiesSold + " cookies");
+    }
+  }
+
+  return salesProjection;
+}
+
+seattle.projectedSales = calculateSales(seattle);
+
+console.log(seattle.projectedSales);
