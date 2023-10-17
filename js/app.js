@@ -36,3 +36,16 @@ const dubai = {
     return Math.floor(Math.random() * (max-min) + min);
   },
 };
+
+const paris = {
+  minHourlyCustomers: 20,
+  maxhourlyCustomer: 38,
+  cookieAvg: 2.3,
+  projectedSales: [],
+  generateCustomers: function() {
+    let min = Math.ceil(this.minHourlyCustomers);
+    let max = Math.floor(this.maxhourlyCustomer);
+
+    return Math.floor(Math.random() * (max-min) + min);
+  },
+};
