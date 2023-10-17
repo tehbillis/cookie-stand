@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sales</title>
+
+  <script src="js/app.js" type="text/javascript"></script>
+  <script>
+    window.onload = function() {
+      function displaySales (projection, locationID) {
+        console.log(locationID);
+        let tempList = '';
+
+        projection.forEach(function(sales, index) {
+          tempList += ('<li>' + projection[index] + '</li>');
+        });
+        document.getElementById(locationID).querySelector('ul').innerHTML = tempList;
+      }
+
+      displaySales(seattle.projectedSales, "seattleLocation");
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -11,8 +28,8 @@
   </header>
 
   <main>
-    <article class="location">
-      <h2 class="locationName">location 1</h2>
+    <article class="location" id="seattleLocation">
+      <h2 class="locationName">Seattle</h2>
       <ul class="locationProjection">
         <li>Item 1</li>
         <li>Item 2</li>
@@ -21,8 +38,8 @@
         <li>Item 5</li>
       </ul>
     </article>
-    <article class="location">
-      <h2 class="locationName">location 2</h2>
+    <article class="location" id="tokyoLocation">
+      <h2 class="locationName">Tokyo</h2>
       <ul class="locationProjection">
         <li>Item 1</li>
         <li>Item 2</li>
@@ -31,8 +48,8 @@
         <li>Item 5</li>
       </ul>
     </article>
-    <article class="location">
-      <h2 class="locationName">location 3</h2>
+    <article class="location" id="dubaiLocation">
+      <h2 class="locationName">Dubai</h2>
       <ul class="locationProjection">
         <li>Item 1</li>
         <li>Item 2</li>
@@ -41,8 +58,8 @@
         <li>Item 5</li>
       </ul>
     </article>
-    <article class="location">
-      <h2 class="locationName">location 4</h2>
+    <article class="location" id="parisLocation">
+      <h2 class="locationName">Paris</h2>
       <ul class="locationProjection">
         <li>Item 1</li>
         <li>Item 2</li>
@@ -51,8 +68,8 @@
         <li>Item 5</li>
       </ul>
     </article>
-    <article class="location">
-      <h2 class="locationName">location 5</h2>
+    <article class="location" id="limaLocation">
+      <h2 class="locationName">Lima</h2>
       <ul class="locationProjection">
         <li>Item 1</li>
         <li>Item 2</li>

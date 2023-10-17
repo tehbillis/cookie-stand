@@ -83,7 +83,7 @@ function calculateSales (city) {
     }
   }
 
-  salesProjection.push('Total: ' + salesTotal + 'cookies');
+  salesProjection.push('Total: ' + salesTotal + ' cookies');
 
   return salesProjection;
 }
