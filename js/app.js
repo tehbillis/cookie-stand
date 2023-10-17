@@ -67,9 +67,12 @@ const lima = {
 
 function calculateSales (city) {
   let salesProjection = [];
+  let salesTotal = 0;
 
   for (let i = 6; i <=20; i++) {
     let cookiesSold = Math.trunc(city.generateCustomers() * city.cookieAvg);
+
+    salesTotal += cookiesSold;
 
     if (i < 12) {
       salesProjection.push(i + 'am: ' + cookiesSold + ' cookies');
@@ -79,6 +82,8 @@ function calculateSales (city) {
       salesProjection.push((i-12) + 'pm: ' + cookiesSold + ' cookies');
     }
   }
+
+  salesProjection.push('Total: ' + salesTotal + 'cookies');
 
   return salesProjection;
 }
