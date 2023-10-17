@@ -49,3 +49,16 @@ const paris = {
     return Math.floor(Math.random() * (max-min) + min);
   },
 };
+
+const lima = {
+  minHourlyCustomers: 2,
+  maxhourlyCustomer: 16,
+  cookieAvg: 4.6,
+  projectedSales: [],
+  generateCustomers: function() {
+    let min = Math.ceil(this.minHourlyCustomers);
+    let max = Math.floor(this.maxhourlyCustomer);
+
+    return Math.floor(Math.random() * (max-min) + min);
+  },
+};
