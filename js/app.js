@@ -63,6 +63,8 @@ const lima = {
   },
 };
 
+// Function to calculate the projected sales of a location
+
 function calculateSales (city) {
   let salesProjection = [];
 
@@ -70,11 +72,11 @@ function calculateSales (city) {
     let cookiesSold = Math.trunc(city.generateCustomers() * city.cookieAvg);
 
     if (i < 12) {
-      salesProjection.push(i + "am: " + cookiesSold + " cookies");
+      salesProjection.push(i + 'am: ' + cookiesSold + ' cookies');
     } else if (i === 12) {
-      salesProjection.push(i + "pm: " + cookiesSold + " cookies");
+      salesProjection.push(i + 'pm: ' + cookiesSold + ' cookies');
     } else {
-      salesProjection.push((i-12) + "pm: " + cookiesSold + " cookies");
+      salesProjection.push((i-12) + 'pm: ' + cookiesSold + ' cookies');
     }
   }
 
@@ -82,5 +84,13 @@ function calculateSales (city) {
 }
 
 seattle.projectedSales = calculateSales(seattle);
+tokyo.projectedSales = calculateSales(tokyo);
+dubai.projectedSales = calculateSales(dubai);
+paris.projectedSales = calculateSales(paris);
+lima.projectedSales = calculateSales(lima);
 
 console.log(seattle.projectedSales);
+console.log(tokyo.projectedSales);
+console.log(dubai.projectedSales);
+console.log(paris.projectedSales);
+console.log(lima.projectedSales);
