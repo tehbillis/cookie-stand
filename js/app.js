@@ -23,3 +23,16 @@ const tokyo = {
     return Math.floor(Math.random() * (max-min) + min);
   },
 };
+
+const dubai = {
+  minHourlyCustomers: 11,
+  maxhourlyCustomer: 38,
+  cookieAvg: 3.7,
+  projectedSales: [],
+  generateCustomers: function() {
+    let min = Math.ceil(this.minHourlyCustomers);
+    let max = Math.floor(this.maxhourlyCustomer);
+
+    return Math.floor(Math.random() * (max-min) + min);
+  },
+};
