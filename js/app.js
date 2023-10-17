@@ -93,9 +93,3 @@ tokyo.projectedSales = calculateSales(tokyo);
 dubai.projectedSales = calculateSales(dubai);
 paris.projectedSales = calculateSales(paris);
 lima.projectedSales = calculateSales(lima);
-
-console.log(seattle.projectedSales);
-console.log(tokyo.projectedSales);
-console.log(dubai.projectedSales);
-console.log(paris.projectedSales);
-console.log(lima.projectedSales);

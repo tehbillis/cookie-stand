@@ -9,7 +9,6 @@
   <script>
     window.onload = function() {
       function displaySales (projection, locationID) {
-        console.log(locationID);
         let tempList = '';
 
         projection.forEach(function(sales, index) {
@@ -22,6 +21,7 @@
       displaySales(tokyo.projectedSales, "tokyoLocation");
       displaySales(dubai.projectedSales, "dubaiLocation");
       displaySales(paris.projectedSales, "parisLocation");
+      displaySales(lima.projectedSales, "limaLocation");
 
     }
   </script>
