@@ -16,12 +16,16 @@
   <script>
     window.onload = function() {
       function displaySales (projection, locationID) {
-        let tempList = '';
+        const newList = document.createElement('ul');
+        newList.setAttribute('class', 'locationProjection');
 
         projection.forEach(function(sales, index) {
-          tempList += ('<li>' + projection[index] + '</li>');
+          const newItem = document.createElement('li');
+          newItem.textContent = projection[index];
+          newList.appendChild(newItem);
+
         });
-        document.getElementById(locationID).querySelector('ul').innerHTML = tempList;
+        document.getElementById(locationID).appendChild(newList);
       }
 
       displaySales(seattle.projectedSales, "seattleLocation");
@@ -41,53 +45,18 @@
   <main>
     <article class="location" id="seattleLocation">
       <h2 class="locationName">Seattle</h2>
-      <ul class="locationProjection">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-      </ul>
     </article>
     <article class="location" id="tokyoLocation">
       <h2 class="locationName">Tokyo</h2>
-      <ul class="locationProjection">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-      </ul>
     </article>
     <article class="location" id="dubaiLocation">
       <h2 class="locationName">Dubai</h2>
-      <ul class="locationProjection">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-      </ul>
     </article>
     <article class="location" id="parisLocation">
       <h2 class="locationName">Paris</h2>
-      <ul class="locationProjection">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-      </ul>
     </article>
     <article class="location" id="limaLocation">
       <h2 class="locationName">Lima</h2>
-      <ul class="locationProjection">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-      </ul>
     </article>
   </main>
 
