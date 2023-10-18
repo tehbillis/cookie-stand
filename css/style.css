@@ -1,0 +1,32 @@
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+header {
+  padding: 10px 0px 10px 40px;
+}
+
+main {
+  padding: 5px 0px 5px 50px;
+}
+
+.location {
+  padding: 10px;
+}
+
+.location h2 {
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+}
+
+.location ul {
+  padding: 5px 0px 0px 15px;
+}
+
+.location ul li {
+  padding-top: 2px;
+}
