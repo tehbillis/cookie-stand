@@ -15,7 +15,7 @@ Here you will find our goods offered as well as a tool that our founders use to 
 
 ### Lighthouse Accessibility Report Score
 
-* Provide a screenshot of your score after running a Lighthouse Accessibility report.
+![lighthouse rating](images/Screenshot%202023-10-17%20at%205.44.41%20PM.png)
 
 ### Reflections and Comments
 
