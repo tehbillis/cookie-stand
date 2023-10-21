@@ -6,7 +6,7 @@ class Location {
     this.minHourlyCustomers = min;
     this.maxhourlyCustomers = max;
     this.cookieAvg = avg;
-    this.projectedSales = this.calculateSales();
+    this.render();
     locations.push(this);
   }
 
@@ -17,37 +17,48 @@ class Location {
     return Math.floor(Math.random() * (max-min) + min);
   }
 
-  calculateSales () {
+  render () {
     let salesProjection = document.createElement('tr');
-    let cookiesTotal = document.createElement('td');
     let salesTotal = 0;
 
     // Add the location name to the table row
     salesProjection.appendChild(document.createElement('td')).innerText = this.name;
 
     // Add sales data to the table row
-    for (let i = 6; i <=20; i++) {
-      let cookiesSold = Math.trunc(this.generateCustomers() * this.cookieAvg);
-      let hourlyCookies = document.createElement('td');
-      salesTotal += cookiesSold;
-
-      if (i < 12) {
-        hourlyCookies.innerText = i + 'am: ' + cookiesSold + ' cookies';
-      } else if (i === 12) {
-        hourlyCookies.innerText = i + 'pm: ' + cookiesSold + ' cookies';
-      } else {
-        hourlyCookies.innerText = (i-12) + 'pm: ' + cookiesSold + ' cookies';
-      }
-
-      salesProjection.appendChild(hourlyCookies);
+    for (let i = 0; i <=14; i++) {
+      let cookiesSold = Math.trunc(this.generateCustomers() * this.cookieAvg); //Calculate cookies sold
+      salesTotal += cookiesSold; //Add to our running total
+      salesProjection.appendChild(document.createElement('td')).innerText = cookiesSold; //Append the data
     }
 
-    // Add total to table row
-    salesProjection.appendChild(cookiesTotal).innerText = 'Total: ' + salesTotal + ' cookies';
+    salesProjection.appendChild(document.createElement('td')).innerText = salesTotal; // Add running total to table row
 
-    console.log(salesProjection);
+    document.getElementById('locationsTable').appendChild(salesProjection);
 
     return salesProjection;
   }
 }
 
+// Function to create header
+
+function createSalesHeader() {
+  let headerRow = document.createElement('tr');
+
+  headerRow.appendChild(document.createElement('th')).innerText = ' ';
+
+  for (let i = 6; i <=20; i++) {
+    if (i < 12) {
+      headerRow.appendChild(document.createElement('th')).innerText = i + ':00am';
+    } else if (i === 12) {
+      headerRow.appendChild(document.createElement('th')).innerText = i + ':00pm';
+    } else {
+      headerRow.appendChild(document.createElement('th')).innerText = (i - 12) + ':00pm';
+    }
+  }
+
+  headerRow.appendChild(document.createElement('th')).innerText = 'Daily Location Total';
+
+  document.getElementById('locationsTable').appendChild(headerRow);
+}
+
+// TODO: function to create footer

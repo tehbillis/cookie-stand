@@ -33,3 +33,14 @@ main {
   padding-top: 2px;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
+
+td {
+  padding: 5px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+th {
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Mooli', sans-serif;
+}

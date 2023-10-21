@@ -14,7 +14,9 @@
 
   <script src="js/app.js" type="text/javascript"></script>
   <script>
-    window.onload = function() {
+    window.onload = function() {    
+      createSalesHeader();
+      
       const seattle = new Location('Seattle', 23, 65, 6.3);
       const tokyo = new Location('Tokyo', 3, 24, 1.2);
       const dubai = new Location('Dubai', 11, 38, 3.7);
@@ -22,10 +24,6 @@
       const lima = new Location('Lima', 2, 16, 4.6);
 
       console.log(locations);
-
-      // TODO: function to create header
-
-      // TODO: function to create footer
     }
   </script>
 </head>
