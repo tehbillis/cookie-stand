@@ -1,7 +1,8 @@
 const locations = [];
 
 class Location {
-  constructor (min, max, avg) {
+  constructor (name, min, max, avg) {
+    this.name = name;
     this.minHourlyCustomers = min;
     this.maxhourlyCustomers = max;
     this.cookieAvg = avg;
@@ -17,33 +18,35 @@ class Location {
   }
 
   calculateSales () {
-    let salesProjection = [];
+    let salesProjection = document.createElement('tr');
+    let cookiesTotal = document.createElement('td');
     let salesTotal = 0;
 
     for (let i = 6; i <=20; i++) {
       let cookiesSold = Math.trunc(this.generateCustomers() * this.cookieAvg);
-
+      let hourlyCookies = document.createElement('td');
       salesTotal += cookiesSold;
 
       if (i < 12) {
-        salesProjection.push(i + 'am: ' + cookiesSold + ' cookies');
+        //salesProjection.push(i + 'am: ' + cookiesSold + ' cookies');
+        hourlyCookies.innerText = i + 'am: ' + cookiesSold + ' cookies';
       } else if (i === 12) {
-        salesProjection.push(i + 'pm: ' + cookiesSold + ' cookies');
+        //salesProjection.push(i + 'pm: ' + cookiesSold + ' cookies');
+        hourlyCookies.innerText = i + 'pm: ' + cookiesSold + ' cookies';
       } else {
-        salesProjection.push((i-12) + 'pm: ' + cookiesSold + ' cookies');
+        //salesProjection.push((i-12) + 'pm: ' + cookiesSold + ' cookies');
+        hourlyCookies.innerText = (i-12) + 'pm: ' + cookiesSold + ' cookies';
       }
+
+      salesProjection.appendChild(hourlyCookies);
     }
 
-    salesProjection.push('Total: ' + salesTotal + ' cookies');
+    //salesProjection.push('Total: ' + salesTotal + ' cookies');
+    salesProjection.appendChild(cookiesTotal).innerText = 'Total: ' + salesTotal + ' cookies';
+
+    console.log(salesProjection);
 
     return salesProjection;
   }
 }
 
-const seattle = new Location(23, 65, 6.3);
-const tokyo = new Location(3, 24, 1.2);
-const dubai = new Location(11, 38, 3.7);
-const paris = new Location(20, 38, 2.3);
-const lima = new Location(2, 16, 4.6);
-
-console.log(locations);
