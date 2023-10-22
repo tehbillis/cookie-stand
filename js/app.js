@@ -1,4 +1,3 @@
-const locations = [];
 
 class Location {
   constructor (name, min, max, avg) {
@@ -7,7 +6,6 @@ class Location {
     this.maxhourlyCustomers = max;
     this.cookieAvg = avg;
     this.render();
-    locations.push(this);
   }
 
   generateCustomers() {
@@ -25,7 +23,7 @@ class Location {
     salesProjection.appendChild(document.createElement('td')).innerText = this.name;
 
     // Add sales data to the table row
-    for (let i = 0; i <=14; i++) {
+    for (let i = 0; i <14; i++) {
       let cookiesSold = Math.trunc(this.generateCustomers() * this.cookieAvg); //Calculate cookies sold
       salesTotal += cookiesSold; //Add to our running total
       salesProjection.appendChild(document.createElement('td')).innerText = cookiesSold; //Append the data
@@ -34,8 +32,6 @@ class Location {
     salesProjection.appendChild(document.createElement('td')).innerText = salesTotal; // Add running total to table row
 
     document.getElementById('locationsTable').appendChild(salesProjection);
-
-    return salesProjection;
   }
 }
 
@@ -46,7 +42,7 @@ function createSalesHeader() {
 
   headerRow.appendChild(document.createElement('th')).innerText = ' ';
 
-  for (let i = 6; i <=20; i++) {
+  for (let i = 6; i <20; i++) {
     if (i < 12) {
       headerRow.appendChild(document.createElement('th')).innerText = i + ':00am';
     } else if (i === 12) {
@@ -61,4 +57,31 @@ function createSalesHeader() {
   document.getElementById('locationsTable').appendChild(headerRow);
 }
 
-// TODO: function to create footer
+// Function to create footer
+
+function createSalesFooter() {
+  let footerRow = document.createElement('tr');
+  let totals = [];
+  const salesTable = document.getElementById('locationsTable');
+
+  footerRow.appendChild(document.createElement('th')).innerText = 'Totals';
+
+  // Loop through the rows
+  for (let i = 1; i < salesTable.rows.length; i++) { 
+    let salesRow = salesTable.rows[i].getElementsByTagName('td');
+
+    // Loop through the column and add the values up.
+    for (let j = 1; j < salesRow.length; j++) { 
+      if (totals[j-1] === undefined) { // If the variable doesn't exist in the array, set it to zero so that it does exist.
+        totals[j-1] = 0;
+      }
+      totals[j-1] += parseInt(salesRow[j].innerText);
+    }
+  }
+
+  for (const total in totals) {
+    footerRow.appendChild(document.createElement('th')).innerText = totals[total];
+  }
+
+  document.getElementById('locationsTable').appendChild(footerRow);
+}
