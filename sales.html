@@ -10,30 +10,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700" rel="stylesheet">
 
   <script src="js/app.js" type="text/javascript"></script>
   <script>
-    window.onload = function() {
-      function displaySales (projection, locationID) {
-        const newList = document.createElement('ul');
-        newList.setAttribute('class', 'locationProjection');
+    window.onload = function() {    
+      createSalesHeader();
+      
+      const seattle = new Location('Seattle', 23, 65, 6.3);
+      const tokyo = new Location('Tokyo', 3, 24, 1.2);
+      const dubai = new Location('Dubai', 11, 38, 3.7);
+      const paris = new Location('Paris', 20, 38, 2.3);
+      const lima = new Location('Lima', 2, 16, 4.6);
 
-        projection.forEach(function(sales, index) {
-          const newItem = document.createElement('li');
-          newItem.textContent = projection[index];
-          newList.appendChild(newItem);
-
-        });
-        document.getElementById(locationID).appendChild(newList);
-      }
-
-      displaySales(seattle.projectedSales, "seattleLocation");
-      displaySales(tokyo.projectedSales, "tokyoLocation");
-      displaySales(dubai.projectedSales, "dubaiLocation");
-      displaySales(paris.projectedSales, "parisLocation");
-      displaySales(lima.projectedSales, "limaLocation");
-
+      createSalesFooter();
     }
   </script>
 </head>
@@ -43,21 +33,9 @@
   </header>
 
   <main>
-    <article class="location" id="seattleLocation">
-      <h2 class="locationName">Seattle</h2>
-    </article>
-    <article class="location" id="tokyoLocation">
-      <h2 class="locationName">Tokyo</h2>
-    </article>
-    <article class="location" id="dubaiLocation">
-      <h2 class="locationName">Dubai</h2>
-    </article>
-    <article class="location" id="parisLocation">
-      <h2 class="locationName">Paris</h2>
-    </article>
-    <article class="location" id="limaLocation">
-      <h2 class="locationName">Lima</h2>
-    </article>
+    <table id="locationsTable">
+
+    </table>
   </main>
 
   <footer>

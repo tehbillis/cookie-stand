@@ -1,95 +1,87 @@
-const seattle = {
-  minHourlyCustomers: 23,
-  maxhourlyCustomer: 65,
-  cookieAvg: 6.3,
-  projectedSales: [],
-  generateCustomers: function() {
+
+class Location {
+  constructor (name, min, max, avg) {
+    this.name = name;
+    this.minHourlyCustomers = min;
+    this.maxhourlyCustomers = max;
+    this.cookieAvg = avg;
+    this.render();
+  }
+
+  generateCustomers() {
     let min = Math.ceil(this.minHourlyCustomers);
-    let max = Math.floor(this.maxhourlyCustomer);
+    let max = Math.floor(this.maxhourlyCustomers);
 
     return Math.floor(Math.random() * (max-min) + min);
-  },
-};
+  }
 
-const tokyo = {
-  minHourlyCustomers: 3,
-  maxhourlyCustomer: 24,
-  cookieAvg: 1.2,
-  projectedSales: [],
-  generateCustomers: function() {
-    let min = Math.ceil(this.minHourlyCustomers);
-    let max = Math.floor(this.maxhourlyCustomer);
+  render () {
+    let salesProjection = document.createElement('tr');
+    let salesTotal = 0;
 
-    return Math.floor(Math.random() * (max-min) + min);
-  },
-};
+    // Add the location name to the table row
+    salesProjection.appendChild(document.createElement('td')).innerText = this.name;
 
-const dubai = {
-  minHourlyCustomers: 11,
-  maxhourlyCustomer: 38,
-  cookieAvg: 3.7,
-  projectedSales: [],
-  generateCustomers: function() {
-    let min = Math.ceil(this.minHourlyCustomers);
-    let max = Math.floor(this.maxhourlyCustomer);
+    // Add sales data to the table row
+    for (let i = 0; i <14; i++) {
+      let cookiesSold = Math.trunc(this.generateCustomers() * this.cookieAvg); //Calculate cookies sold
+      salesTotal += cookiesSold; //Add to our running total
+      salesProjection.appendChild(document.createElement('td')).innerText = cookiesSold; //Append the data
+    }
 
-    return Math.floor(Math.random() * (max-min) + min);
-  },
-};
+    salesProjection.appendChild(document.createElement('td')).innerText = salesTotal; // Add running total to table row
 
-const paris = {
-  minHourlyCustomers: 20,
-  maxhourlyCustomer: 38,
-  cookieAvg: 2.3,
-  projectedSales: [],
-  generateCustomers: function() {
-    let min = Math.ceil(this.minHourlyCustomers);
-    let max = Math.floor(this.maxhourlyCustomer);
+    document.getElementById('locationsTable').appendChild(salesProjection);
+  }
+}
 
-    return Math.floor(Math.random() * (max-min) + min);
-  },
-};
+// Function to create header
 
-const lima = {
-  minHourlyCustomers: 2,
-  maxhourlyCustomer: 16,
-  cookieAvg: 4.6,
-  projectedSales: [],
-  generateCustomers: function() {
-    let min = Math.ceil(this.minHourlyCustomers);
-    let max = Math.floor(this.maxhourlyCustomer);
+function createSalesHeader() {
+  let headerRow = document.createElement('tr');
 
-    return Math.floor(Math.random() * (max-min) + min);
-  },
-};
+  headerRow.appendChild(document.createElement('th')).innerText = ' ';
 
-// Function to calculate the projected sales of a location
-
-function calculateSales (city) {
-  let salesProjection = [];
-  let salesTotal = 0;
-
-  for (let i = 6; i <=20; i++) {
-    let cookiesSold = Math.trunc(city.generateCustomers() * city.cookieAvg);
-
-    salesTotal += cookiesSold;
-
+  for (let i = 6; i <20; i++) {
     if (i < 12) {
-      salesProjection.push(i + 'am: ' + cookiesSold + ' cookies');
+      headerRow.appendChild(document.createElement('th')).innerText = i + ':00am';
     } else if (i === 12) {
-      salesProjection.push(i + 'pm: ' + cookiesSold + ' cookies');
+      headerRow.appendChild(document.createElement('th')).innerText = i + ':00pm';
     } else {
-      salesProjection.push((i-12) + 'pm: ' + cookiesSold + ' cookies');
+      headerRow.appendChild(document.createElement('th')).innerText = (i - 12) + ':00pm';
     }
   }
 
-  salesProjection.push('Total: ' + salesTotal + ' cookies');
+  headerRow.appendChild(document.createElement('th')).innerText = 'Daily Location Total';
 
-  return salesProjection;
+  document.getElementById('locationsTable').appendChild(headerRow);
 }
 
-seattle.projectedSales = calculateSales(seattle);
-tokyo.projectedSales = calculateSales(tokyo);
-dubai.projectedSales = calculateSales(dubai);
-paris.projectedSales = calculateSales(paris);
-lima.projectedSales = calculateSales(lima);
+// Function to create footer
+
+function createSalesFooter() {
+  let footerRow = document.createElement('tr');
+  let totals = [];
+  const salesTable = document.getElementById('locationsTable');
+
+  footerRow.appendChild(document.createElement('th')).innerText = 'Totals';
+
+  // Loop through the rows
+  for (let i = 1; i < salesTable.rows.length; i++) { 
+    let salesRow = salesTable.rows[i].getElementsByTagName('td');
+
+    // Loop through the column and add the values up.
+    for (let j = 1; j < salesRow.length; j++) { 
+      if (totals[j-1] === undefined) { // If the variable doesn't exist in the array, set it to zero so that it does exist.
+        totals[j-1] = 0;
+      }
+      totals[j-1] += parseInt(salesRow[j].innerText);
+    }
+  }
+
+  for (const total in totals) {
+    footerRow.appendChild(document.createElement('th')).innerText = totals[total];
+  }
+
+  document.getElementById('locationsTable').appendChild(footerRow);
+}
