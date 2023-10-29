@@ -22,7 +22,7 @@ body {
 
 header {
   padding: 20px 0px 20px 40px;
-  width: 100vw;
+  /* width: 100vw; */
   background-color: #ffc9c3;
   display: flex;
   flex: 1;
@@ -97,7 +97,7 @@ main {
 main section {
   display: flex;
   flex: 1;
-  width: 860px;
+  /* width: 860px; */
   justify-content: space-around;
   padding-top: 30px;
 }
@@ -114,9 +114,39 @@ main section h3 {
   padding-bottom: 10px;
 }
 
+main section address {
+  font-size: 18px;
+  padding: 5px 0 10px 0;
+}
+
 main section ul li {
   padding: 5px 0 5px 0;
   font-size: 14px;
+}
+
+/*----------------------------------------*/
+/*            Merch Styles                */
+/*----------------------------------------*/
+
+#merch {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#merch article {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+#merch article h2 {
+  align-self: center;
+}
+
+#merch article p {
+  padding-top: 20px;
+  font-size: 20px;
 }
 
 /*----------------------------------------*/
