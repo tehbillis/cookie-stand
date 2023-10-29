@@ -16,6 +16,10 @@ body {
   flex-wrap: wrap;
 }
 
+/*----------------------------------------*/
+/*            Header Styles               */
+/*----------------------------------------*/
+
 header {
   padding: 20px 0px 20px 40px;
   width: 100vw;
@@ -41,7 +45,7 @@ header h1 {
 }
 
 header nav {
-  width: 400px;
+  width: 290px;
   display: flex;
 }
 
@@ -68,13 +72,56 @@ header nav a:hover {
   color: #95C842;
 }
 
+/*----------------------------------------*/
+/*             Main Styles                */
+/*----------------------------------------*/
+
 main {
   padding: 5px 0px 5px 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-content: center;
   flex: 1;
+  flex-direction: column;
 }
+
+#cookieImages {
+  justify-content: space-between;
+}
+
+#cookieImages img {
+  height: 270px;
+  width: 270px;
+}
+
+main section {
+  display: flex;
+  flex: 1;
+  width: 860px;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+main section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+main section h3 {
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+main section ul li {
+  padding: 5px 0 5px 0;
+  font-size: 14px;
+}
+
+/*----------------------------------------*/
+/*            Table Styles                */
+/*----------------------------------------*/
 
 table {
   width: 960px;
