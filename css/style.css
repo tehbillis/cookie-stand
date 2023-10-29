@@ -8,30 +8,76 @@ h2 {
   font-family: 'Exo 2', sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 header {
-  padding: 10px 0px 10px 40px;
+  padding: 20px 0px 20px 40px;
+  width: 100vw;
+  background-color: #ffc9c3;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+header img {
+  width: 196.75px;
+  height: 61.5px;
+  display: flex;
+  align-content: center;
+}
+
+header h1 {
+  font-size: 42px;
+  font-family: 'Exo 2', sans-serif;
+  padding-left: 50px;
+  align-self: center;
+  color: #196371;
+}
+
+header nav {
+  width: 400px;
+  display: flex;
+}
+
+header nav ul{
+  display: flex;
+  justify-content:flex-end;
+  width: 100%;
+}
+
+header nav ul li {
+  display: flex;
+  align-content: center;
+}
+
+header nav a {
+  color: #75A922;
+  font-weight: bold;
+  display: flex; 
+  align-items: center;
+  font-size: 25px;
+}
+
+header nav a:hover {
+  color: #95C842;
 }
 
 main {
   padding: 5px 0px 5px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
 }
 
-.location {
-  padding: 10px;
-}
-
-.location h2 {
-  text-decoration: underline;
-  text-decoration-thickness: 0.05em;
-}
-
-.location ul {
-  padding: 5px 0px 0px 15px;
-}
-
-.location ul li {
-  padding-top: 2px;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+table {
+  width: 960px;
 }
 
 td {
