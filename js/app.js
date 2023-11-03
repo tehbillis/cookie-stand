@@ -85,3 +85,9 @@ function createSalesFooter() {
 
   document.getElementById('locationsTable').appendChild(footerRow);
 }
+
+// Function to create a new location
+
+// function createNewLocation() {
+
+// }
