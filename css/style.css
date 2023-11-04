@@ -179,3 +179,30 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+form {
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+}
+
+form button {
+  width: 100px;
+  height: 30px;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+form fieldset section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+form fieldset section input {
+  width: 200px;
+}
