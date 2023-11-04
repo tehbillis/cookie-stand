@@ -85,3 +85,31 @@ function createSalesFooter() {
 
   document.getElementById('locationsTable').appendChild(footerRow);
 }
+
+// Function to create a new location
+
+function createNewLocation(event) {
+  event.preventDefault();
+
+  const table = document.getElementById('locationsTable');
+  const form = document.querySelector('form');
+  const name = form.elements['name'];
+  const min = form.elements['min'];
+  const max = form.elements['max'];
+  const avg = form.elements['avg'];
+
+  if(name.value === '' || min.value === '' || max.value === '' || avg.value === '') {
+    alert('Please fill in all boxes.');
+  } else {
+    table.removeChild(table.lastElementChild);
+
+    const newLocation = new Location(name.value, min.value, max.value, avg.value);
+
+    createSalesFooter();
+
+    name.value = '';
+    min.value = '';
+    max.value = '';
+    avg.value = '';
+  }
+}
