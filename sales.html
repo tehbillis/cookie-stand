@@ -24,6 +24,9 @@
       const lima = new Location('Lima', 2, 16, 4.6);
 
       createSalesFooter();
+
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", createNewLocation)
     }
   </script>
 </head>
@@ -44,7 +47,7 @@
     </table>
 
     <section>
-      <form>
+      <form onsubmit="createNewLocation(event);">
         <h2>Add New Location</h2>
         <fieldset>
           <section>
@@ -54,17 +57,17 @@
           
           <section>
             <label for="min">Minimum Hourly Customers</label>
-            <input id="min" type="text">
+            <input id="min" type="number">
           </section>
           
           <section>
             <label for="max">Maximum Hourly Customers</label>
-            <input id="max" type="text">
+            <input id="max" type="number">
             </section>
           
           <section>
             <label for="avg">Average Cookies Per Customer</label>
-            <input id="avg" type="text">
+            <input id="avg" type="number">
             </section>
         </fieldset>
 
