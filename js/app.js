@@ -107,5 +107,9 @@ function createNewLocation(event) {
 
     createSalesFooter();
 
+    name.value = '';
+    min.value = '';
+    max.value = '';
+    avg.value = '';
   }
 }
