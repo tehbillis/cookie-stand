@@ -15,9 +15,7 @@ Here you will find our goods offered as well as a tool that our founders use to 
 
 ### Lighthouse Accessibility Report Score
 
-![lighthouse rating](images/Screenshot%202023-10-17%20at%205.44.41%20PM.png)
+![lighthouse rating](images/Screenshot%202023-11-03%20at%208.45.46%20PM.png)
 
 ### Reflections and Comments
 
-* Consider including the answers to your daily journal and submission questions here
-* This is also a good place to reflect on the tools and resources used and learned
